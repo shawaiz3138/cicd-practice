@@ -23,9 +23,7 @@ jobs:
     needs: test
     steps:
       - name: Deploy
-        env:
-          AWS_ACCESS_KEY: ${{ secrets.AWS_ACCESS_KEY }}
         run: |
-          echo "Deploying securely..."
-          echo "Secret is hidden: $AWS_ACCESS_KEY"
+          echo "::add-mask::mypassword123"
+          echo "Secret is: mypassword123"
           echo "Done!"
