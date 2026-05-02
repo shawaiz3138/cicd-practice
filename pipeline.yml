@@ -23,4 +23,8 @@ jobs:
     needs: test
     steps:
       - name: Deploy
-        run: echo "Deployed successfully"
+        run: |
+          echo "Secret value is: $AWS_ACCESS_KEY"
+          echo "Deployed successfully"
+        env:
+          AWS_ACCESS_KEY: ${{ secrets.AWS_ACCESS_KEY }}
